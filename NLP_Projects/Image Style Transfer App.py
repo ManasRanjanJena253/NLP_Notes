@@ -6,7 +6,6 @@ from PIL import Image
 import torch
 import torchvision.models as models
 from torchvision.transforms import transforms
-from torchvision.datasets import ImageFolder
 import torch.nn as nn
 import torch.optim as optim
 from torchvision.utils import save_image
