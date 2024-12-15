@@ -1,7 +1,7 @@
 # Building a chatbot for a food restaurant.
-from operator import truediv
 
 import streamlit as st
+import os
 from PIL import Image
 import torch
 import torchvision.models as models
@@ -10,6 +10,10 @@ import torch.nn as nn
 import torch.optim as optim
 from torchvision.utils import save_image
 from tqdm import tqdm
+
+os.system('pip install torch')
+os.system('pip install torchvision')
+
 
 st.title("PyTorch Neural Style Transfer :smile:")
 st.title("By : Manas Ranjan Jena.")
@@ -113,10 +117,6 @@ if clicked:
         optimizer.zero_grad()
         total_loss.backward()
         optimizer.step()
-        if epoch % 10 == 0:
-            print(f"Total loss at epoch {epoch} :: {total_loss}")
-            save_image(generated_image, f"generated_img_{epoch}.png")
-    print(f"Total loss at final epoch :: {total_loss}")
     save_image(generated_image, f"generated_final_img.png")
 
     st.write('### Your Stylised Image :smile:')
