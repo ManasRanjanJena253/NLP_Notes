@@ -21,15 +21,15 @@ img = st.sidebar.selectbox(
 style_name = st.sidebar.selectbox('Select Style',
                                   ['Style_1', 'Style_2', 'Style_3'])
 
-input_image = 'NLP Projects/Images/' + img
-output_img = 'NLP Projects/Output Images' + style_name + '-' + img
+input_image = 'NLP_Projects/Images/' + img
+output_img = 'NLP_Projects/Output Images' + style_name + '-' + img
 
 st.write('### Source Image :')
 image = Image.open(input_image)
 st.image(image, width = 400)
 for k in range(1, 4):
     st.write(f"### NST_Style_{k}")
-    style = Image.open(f"NLP Projects/Styles/Style {k}.png")
+    style = Image.open(f"NLP_Projects/Styles/Style {k}.png")
     st.image(style, width = 150)
 
 clicked = st.button('Stylize')
@@ -51,9 +51,9 @@ origin_img = load_image(input_image)
 if clicked:
     st.write('### Stylising the image............')
     st.write('It may take 3-5 minutes for the image to be generated.')
-    model1_state_dict = torch.load('NLP Projects/Models/NST_Style_1.pth', weights_only = True, map_location = device)
-    model2_state_dict = torch.load('NLP Projects/Models/NST_Style_2.pth', weights_only = True, map_location = device)
-    model3_state_dict = torch.load('NLP Projects/Models/NST_Style_3.pth', weights_only = True, map_location = device)
+    model1_state_dict = torch.load('NLP_Projects/Models/NST_Style_1.pth', weights_only = True, map_location = device)
+    model2_state_dict = torch.load('NLP_Projects/Models/NST_Style_2.pth', weights_only = True, map_location = device)
+    model3_state_dict = torch.load('NLP_Projects/Models/NST_Style_3.pth', weights_only = True, map_location = device)
 
     class vgg(nn.Module):
         def __init__(self):
@@ -74,13 +74,13 @@ if clicked:
     model.eval()
 
     if style_name == 'Style_1':
-        style = load_image('NLP Projects/Styles/Style 1.png')
+        style = load_image('NLP_Projects/Styles/Style 1.png')
         loaded_model = model.load_state_dict(model1_state_dict)
     elif style_name == 'Style_2':
-        style = load_image('NLP Projects/Styles/Style 2.png')
+        style = load_image('NLP_Projects/Styles/Style 2.png')
         loaded_model = model.load_state_dict(model2_state_dict)
     elif style_name == 'Style_3':
-        style = load_image('NLP Projects/Styles/Style 3.png')
+        style = load_image('NLP_Projects/Styles/Style 3.png')
         loaded_model = model.load_state_dict(model3_state_dict)
     generated_image = origin_img.clone().requires_grad_(True)
     # Requires grad specifies that the gradient descent or the optimisation will be done on the generated_image.
