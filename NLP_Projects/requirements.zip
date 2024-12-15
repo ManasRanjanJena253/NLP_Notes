@@ -1,9 +1,7 @@
 # requirements
 streamlit
--f https://data.pyg.org/whl/torch-1.13.0+cpu.html
-torch-scatter
+os
 pandas
-torchvision
 numpy
 PIL
 tqdm
