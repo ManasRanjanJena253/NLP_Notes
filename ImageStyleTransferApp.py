@@ -1,7 +1,8 @@
-# Building a chatbot for a food restaurant.
-
-import streamlit as st
+# Importing dependecies
 import os
+os.system('pip install torch')
+os.system('pip install torchvision')
+import streamlit as st
 from PIL import Image
 import torch
 import torchvision.models as models
@@ -10,9 +11,6 @@ import torch.nn as nn
 import torch.optim as optim
 from torchvision.utils import save_image
 from tqdm import tqdm
-
-os.system('pip install torch')
-os.system('pip install torchvision')
 
 
 st.title("PyTorch Neural Style Transfer :smile:")
