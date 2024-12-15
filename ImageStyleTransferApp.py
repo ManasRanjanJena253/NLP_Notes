@@ -1,7 +1,4 @@
 # Importing dependecies
-import os
-os.system('pip install torch')
-os.system('pip install torchvision')
 import streamlit as st
 from PIL import Image
 import torch
