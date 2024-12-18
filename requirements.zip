@@ -1,8 +1,0 @@
-# requirements
-streamlit
-pandas
-torch
-torchvision
-numpy
-PIL
-tqdm
