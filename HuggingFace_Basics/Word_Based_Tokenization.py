@@ -29,4 +29,15 @@ from transformers import DataCollatorWithPadding
 data_collator = DataCollatorWithPadding(tokenizer)
 #train_dataloader = DataLoader(tokenized_datasets[train], batch_size = 16, shuffle = True, collate_fn = data_collator)
 
+# We can also use of a pair of sentence for classification tasks such as if the given pair of sentences carry same meaning or not.
+# To do so we just need to pass them as two arguments to the tokeniser.
+checkpoint = 'bert-base-uncased'
+tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+tokens = tokenizer('My name is Manas.', 'People call me Manas')
+
+# If we have multiple sentences to compare with another pair of multiple sentences we can create list of multiple sentences.
+token = tokenizer(['My name is Manas.', 'I am Manas'],
+                  ['Hello How are you ?', 'How are you?'])
+
+
 
